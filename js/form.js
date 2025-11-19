@@ -13,6 +13,8 @@ botaoAdicionar.addEventListener("click", function(){
 
     tabela.appendChild(pacienteTr);
 
+    form.reset();
+
 });
 
 // Dividir em tres funções para thabalhar com tarefas menores
@@ -22,7 +24,7 @@ function obtemPacienteDoFormulario(form){
         peso: form.peso.value,
         altura: form.altura.value,
         gordura: form.gordura.value,
-        imc: calcularImc(form.peso.value, form.altura.value);
+        imc: calcularImc(form.peso.value, form.altura.value)
     }
     return paciente;
 }
@@ -48,4 +50,18 @@ function montaTr(paciente){
     pacienteTr.appendChild(alturaTd);
     pacienteTr.appendChild(gorduraTd);
     pacienteTr.appendChild(imcTd);
+}
+
+function montaTd() {
+    var pacienteTr = document.createElement("tr");
+    pacienteTr.classList.add("paciente");
+
+    pacienteTr.appendChild(montaTd(paciente.nome, "info-nome"));
+    pacienteTr.appendChild(montaTd(paciente.nome, "info-peso"));
+    pacienteTr.appendChild(montaTd(paciente.nome, "info-altura"));
+    pacienteTr.appendChild(montaTd(paciente.nome, "info-gordura"));
+    pacienteTr.appendChild(montaTd(paciente.nome, "info-imc"));
+
+    return pacienteTr;
+
 }
